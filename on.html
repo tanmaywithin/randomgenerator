@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Background Color and Image Generator</title>
+</head>
+<body>
+  <h1>Random Background Color and Image Generator</h1>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <br><br>
+  <img id="randomImage" src="" alt="Random" width="500px" style="border-radius: 95%;" />
+
+  <script>
+    let intervalIdColor;
+    let intervalIdImage;
+
+    const changeBackground = function () {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    };
+
+    const changeImage = function () {
+      const url = `https://picsum.photos/500?random=${Math.floor(Math.random() * 1000)}`;
+      document.getElementById('randomImage').src = url;
+    };
+
+    document.getElementById("start").addEventListener('click', function () {
+      if (!intervalIdColor && !intervalIdImage) {
+        changeBackground(); 
+        changeImage();      
+        intervalIdColor = setInterval(changeBackground, 1200);
+        intervalIdImage = setInterval(changeImage, 1000);
+      }
+    });
+
+    document.getElementById("stop").addEventListener('click', function () {
+      clearInterval(intervalIdColor);
+      clearInterval(intervalIdImage);
+      intervalIdColor = null;
+      intervalIdImage = null;
+      console.log("STOPPED");
+    });
+  </script>
+</body>
+</html>
