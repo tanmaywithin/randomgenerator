@@ -9,9 +9,6 @@ This is a fun JavaScript mini-project that dynamically changes the **background 
 - ⏯️ Start/Stop button controls
 - 💡 Built using simple HTML, CSS, and vanilla JavaScript
 
-## 📸 Demo
-
-![Demo Screenshot](screenshot.png) <!-- Optional: add a screenshot here if you have one -->
 
 ## 🔧 How to Use
 
